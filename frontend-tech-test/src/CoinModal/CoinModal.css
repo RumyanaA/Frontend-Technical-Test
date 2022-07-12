@@ -1,0 +1,18 @@
+.additional-info{
+    display: flex;
+    flex-direction: column;
+}
+.modal-dialog {
+    max-width: 60rem;
+
+}
+  .modal-content {
+    width: 60rem;
+    left:0;
+  }
+  .modal-header {
+    flex-direction: column;
+  }
+  .modal-paragraph {
+    font-weight: 700;
+  }
