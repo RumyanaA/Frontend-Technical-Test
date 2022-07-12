@@ -11,11 +11,11 @@ function CoinModal({ show, coin, handleClose }) {
       </Modal.Header>
       <Modal.Body>
         <div>
-          <span>Hashing algorithm: {coin.hashing_algorithm}</span>
+          <span>Hashing algorithm: {(coin.hashing_algorithm?coin.hashing_algorithm: 'Unknown' )}</span>
           <p>{parse(coin.description.en)}</p>
           <div className="additional-info">
             <span>Market cap: {coin.market_data.market_cap.eur}</span>
-            <span>Genesis Date: {coin.genesis_date}</span>
+            <span>Genesis Date: {(coin.genesis_date? coin.genesis_date : 'Unknown')}</span>
             <a href={coin.links.homepage[0]}>{coin.links.homepage[0]}</a>
           </div>
         </div>
