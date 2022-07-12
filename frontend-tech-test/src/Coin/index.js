@@ -24,7 +24,6 @@ function Coin({ props }) {
   const handleClick = async () => {
     await fetchCoinById();
     handleShow();
-    console.log(clickedCoin);
   };
   return (
     <>
