@@ -17,7 +17,7 @@ function MarketCoins() {
 
   useEffect(() => {
     fetchMarketCoins();
-  }, [activePage  ]);
+  }, [activePage]);
 
   let paginationNums = [];
   for (let number = 1; number <= 10; number++) {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getMarketCoins = async ({ activePage }) =>
+export const getMarketCoins = async (activePage) =>
   await axios.get(
     `https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&per_page=10&page=${activePage}`
   );
