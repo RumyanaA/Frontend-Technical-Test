@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { getCoinById } from "../service";
 import CoinModal from "../CoinModal";
 import "./Coin.css";
 function Coin({ props }) {
@@ -12,9 +12,7 @@ function Coin({ props }) {
 
   const fetchCoinById = async () => {
     try {
-      const fetchedCoin = await axios.get(
-        `https://api.coingecko.com/api/v3/coins/${props.id}`
-      );
+      const fetchedCoin = await getCoinById(props.id);
       setClickedCoin(fetchedCoin.data);
     } catch (error) {
       console.error(error);

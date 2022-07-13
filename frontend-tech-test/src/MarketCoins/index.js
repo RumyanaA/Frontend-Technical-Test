@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Pagination from "react-bootstrap/Pagination";
 import Coin from "../Coin";
+import { getMarketCoins } from "../service";
 import "./MarketCoins.css";
 function MarketCoins() {
   const [allCoins, setAllCoins] = useState([]);
-  const [activeNum, setActiveNum] = useState(1);
-  const [page, setPage] = useState(1);
+  const [activePage, setActivePage] = useState(1);
   const fetchMarketCoins = async () => {
     try {
-      const response = await axios.get(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&per_page=10&page=${page}`
-      );
+      const response = await getMarketCoins(activePage);
       setAllCoins(response.data);
     } catch (e) {
       console.log(e);
@@ -20,18 +17,16 @@ function MarketCoins() {
 
   useEffect(() => {
     fetchMarketCoins();
-  }, [page]);
+  }, [activePage  ]);
 
   let paginationNums = [];
   for (let number = 1; number <= 10; number++) {
     paginationNums.push(
       <Pagination.Item
-        onClick={() => {
-          setActiveNum(number);
-          setPage(number);
-        }}
+        onClick={() => setActivePage(number)
+        }
         key={number}
-        active={number === activeNum}
+        active={number === activePage}
       >
         {number}
       </Pagination.Item>
